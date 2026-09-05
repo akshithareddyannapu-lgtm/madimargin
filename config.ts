@@ -20,16 +20,21 @@ function getDateAndTime(): string {
 export const DATE_AND_TIME = getDateAndTime();
 
 // --- Assistant identity (all user-facing naming derives from these) ---
-export const AI_NAME = "myAI6"; // ← your assistant's name
-export const OWNER_NAME = "Your Name"; // ← the person this assistant represents
+export const AI_NAME = "MandiMargin"; // ← your assistant's name
+// myAI6's template is built around a single "owner" persona (a bio
+// assistant). MandiMargin serves a stakeholder group instead — independent
+// rice merchants and mill owners in Andhra Pradesh & Telangana — so
+// OWNER_NAME is repurposed to describe that audience/scope rather than a
+// person. See DOCUMENTATION.md Part C1 for the full rationale.
+export const OWNER_NAME = "Andhra Pradesh & Telangana rice merchants";
 export const AI_DESCRIPTION = `
-${AI_NAME} is ${OWNER_NAME}'s AI assistant. It answers questions about ${OWNER_NAME}'s work using a curated knowledge base, and can search the web for current information.
+${AI_NAME} helps independent rice merchants and mill owners across Andhra Pradesh and Telangana decide, each morning, which district to sell their paddy/rice in for the highest NET profit after transport cost.
 `.trim();
 
 // Browser tab / metadata title. Change freely — one line, no other edits needed.
-export const BROWSER_TAB_TITLE = `${AI_NAME}`;
+export const BROWSER_TAB_TITLE = `${AI_NAME} — Rice Arbitrage Assistant`;
 
-export const WELCOME_MESSAGE = `Hello! I'm ${AI_NAME}, ${OWNER_NAME}'s AI assistant.`;
+export const WELCOME_MESSAGE = `Hello! I'm ${AI_NAME}. Tell me your district, how much paddy/rice you have, and your transport cost per km, and I'll tell you which nearby district nets you the most money today.`;
 export const CLEAR_CHAT_TEXT = "New";
 
 // --- Defaults (PROF REQUIREMENT: Anthropic by default) ---
@@ -101,14 +106,15 @@ export const PINECONE_VISUALS_PER_SOURCE = 20; // max figure/table chunks merged
 // Update this list whenever you ingest new content into Pinecone.
 // The model uses this to decide whether to search the KB or skip it entirely.
 export const KB_SCOPE = `
-The knowledge base covers ${OWNER_NAME}'s work. Topics include:
+The knowledge base covers background material for rice merchants in Andhra Pradesh & Telangana. Topics include:
 
-DOCUMENTS AND TOPICS (replace these examples with what you actually ingest):
-- [Example] A research paper or article, its methods, and its findings
-- [Example] A CV or resume: education, employment, projects, awards
-- [Example] Presentation slides or a talk transcript
+- The AP/Telangana district list this tool covers, and which districts neighbor which
+- How Agmarknet and state mandi boards report daily commodity prices
+- Paddy/rice grading and variety basics (common vs. fine/Grade A, moisture, FAQ terms merchants use)
+- Transport-cost benchmarking notes for freight-rate context
+- A merchant FAQ covering what this assistant does and does not do
 
-Any question about ${OWNER_NAME} or the topics above is within scope.
+Any question about these topics, or about how to use the arbitrage tool itself, is within scope. Live prices are NOT in the knowledge base — those come from the arbitrageCalculator tool, not vectorDatabaseSearch.
 `.trim();
 
 // --- Exa Web Search ---
@@ -120,17 +126,12 @@ export const EXA_MAX_CHARACTERS = 3000; // max chars of page text per result
 export const EXA_LIVECRAWL = "preferred" as const; // "never" | "fallback" | "preferred" | "always"
 export const EXA_SYSTEM_PROMPT = `Prefer authoritative and academic sources: peer-reviewed journals, arxiv.org, SSRN, NBER, university sites, and official publications. For questions about ${OWNER_NAME}, prioritize their official profiles: LinkedIn, ORCID, ResearchGate, and Google Scholar. Avoid duplicates, low-quality aggregators, and pages that appear outdated or removed.`;
 
-// --- Owner Profile Sources (latest information and news) ---
-// The owner's official profile pages. For "latest on the owner" questions, the
-// model is instructed to web-search these places FIRST: the exact URLs are
-// listed in the system prompt, and webSearch restricts results to their
-// domains via includeDomains. Update here when a profile moves; everything
-// else derives from this list.
-export const OWNER_PROFILE_SOURCES = [
-  // Replace with the owner's real public profile pages (name + exact URL).
-  { name: "Google Scholar", url: "https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" },
-  { name: "LinkedIn", url: "https://www.linkedin.com/in/your-profile/" },
-];
+// --- Owner Profile Sources (unused by MandiMargin) ---
+// myAI6's default fetchOwnerProfiles tool (live-fetches a person's public
+// profile pages) doesn't apply to a stakeholder-serving assistant, so it is
+// not included in lib/ai/tools.ts. Left empty rather than deleted so the
+// template's types/exports stay intact if this is switched back later.
+export const OWNER_PROFILE_SOURCES: { name: string; url: string }[] = [];
 
 // Max characters of live page text fetched per profile (fetchOwnerProfiles tool).
 export const OWNER_PROFILE_MAX_CHARACTERS = 5000;
@@ -148,7 +149,7 @@ export const OWNER_PROFILE_DOMAINS = OWNER_PROFILE_SOURCES.map((s) => {
 // Hard cap on tool-use steps per request. Must be large enough to cover the
 // per-response soft budgets below plus one fetchOwnerProfiles call and the
 // final compose step, i.e. >= MAX_KB_SEARCHES + MAX_WEB_SEARCHES + 2.
-export const MAX_STEPS = 8; // max tool-use steps per request
+export const MAX_STEPS = 10; // max tool-use steps per request (KB + web budgets + arbitrage + compose)
 // Per-response soft budgets (enforced via prompt guidance in lib/ai/tools.ts).
 export const MAX_KB_SEARCHES = 2; // max vectorDatabaseSearch calls per response
 export const MAX_WEB_SEARCHES = 3; // max webSearch calls per response

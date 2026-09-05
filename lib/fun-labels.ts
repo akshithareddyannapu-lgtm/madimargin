@@ -57,6 +57,12 @@ export const FUN_LABELS = {
     "Reflecting on our discussion",
     "Extracting key insights from conversation",
   ],
+  arbitrage: [
+    "Checking mandi prices",
+    "Calculating freight costs",
+    "Comparing districts",
+    "Running the numbers",
+  ],
 } as const;
 
 export type FunLabelCategory = keyof typeof FUN_LABELS;
@@ -135,6 +141,12 @@ export const PAST_TENSE: Record<FunLabelCategory, string[]> = {
     "Summarized discussion",
     "Extracted key insights from conversation",
     "Reflected on discussion",
+  ],
+  arbitrage: [
+    "Checked mandi prices",
+    "Calculated freight costs",
+    "Compared districts",
+    "Ran the numbers",
   ],
 };
 

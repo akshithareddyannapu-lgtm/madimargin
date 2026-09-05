@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { ThinkingIndicator } from "@/components/ai-elements/thinking-indicator";
 import { MessageWall } from "@/components/messages/message-wall";
+import { ArbitrageIntakeForm } from "@/components/arbitrage-intake-form";
 import { ChatHeader, ChatHeaderBlock } from "@/app/parts/chat-header";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useEffect, useState, useRef, useCallback } from "react";
@@ -189,6 +190,16 @@ export default function Chat() {
       body: s ? { compactedSummary: s.summary, summarizedUpTo: s.summarizedUpTo } : undefined,
     } as any);
     form.reset();
+  }
+
+  // Guided intake: the ArbitrageIntakeForm composes one well-formed message
+  // from its three fields and sends it exactly like a typed message would.
+  function handleGuidedSubmit(message: string) {
+    const s = summaryRef.current;
+    sendMessage({
+      text: message,
+      body: s ? { compactedSummary: s.summary, summarizedUpTo: s.summarizedUpTo } : undefined,
+    } as any);
   }
 
   function switchConversation(id: string) {
@@ -387,6 +398,11 @@ export default function Chat() {
                     }))
                   }
                 />
+                {messages.length <= 1 && status === "ready" && (
+                  <div className="max-w-3xl w-full mt-3">
+                    <ArbitrageIntakeForm onSubmit={handleGuidedSubmit} />
+                  </div>
+                )}
                 {status === "submitted" && (
                   <div className="max-w-3xl w-full">
                     <ThinkingIndicator isCompacting={(() => {

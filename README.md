@@ -1,3 +1,15 @@
+> **Team:** TODO(team name) · **Members:** TODO(4 names) · **Live URL:** TODO(Vercel URL, once deployed) · **Documentation:** [DOCUMENTATION.md](./DOCUMENTATION.md)
+>
+> MandiMargin — a rice-arbitrage decision assistant for AP/Telangana merchants, built on the myAI6 template for the BITSoM "AI in Business" midterm. Update the line above with your real team info before submitting; it must be the first thing in this file per the assignment brief.
+
+# MandiMargin (built on myAI6)
+
+**A rice-arbitrage decision assistant for AP/Telangana merchants — built on the myAI6 RAG chatbot template (Next.js 16, Vercel AI SDK v6, Pinecone).**
+
+MandiMargin helps independent rice merchants and mill owners in Andhra Pradesh and Telangana decide each morning which nearby district to sell their paddy/rice in for the highest net profit after transport cost — see [DOCUMENTATION.md](./DOCUMENTATION.md) for the full product case and technical writeup. Everything below this point is the original myAI6 template documentation, kept for setup/deployment reference.
+
+---
+
 # myAI6
 
 **A modular RAG chatbot built with Next.js 16, Vercel AI SDK v6, and Pinecone.**

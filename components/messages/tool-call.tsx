@@ -1,7 +1,7 @@
 "use client";
 
 import { ToolCallPart, ToolResultPart } from "ai";
-import { BookOpen, Globe, Search, Wrench } from "lucide-react";
+import { BookOpen, Globe, Search, Wrench, Calculator } from "lucide-react";
 import { Shimmer } from "../ai-elements/shimmer";
 import { useRotatingLabel } from "@/hooks/use-rotating-label";
 import { pickRandomPastTense, type FunLabelCategory } from "@/lib/fun-labels";
@@ -28,6 +28,20 @@ function formatSearchArgs(_: string, input: unknown): string {
 }
 
 const TOOL_CONFIG: Record<string, ToolDisplayConfig> = {
+  arbitrageCalculator: {
+    callCategory: "arbitrage",
+    resultCategory: "arbitrage",
+    call_icon: <Calculator className="w-4 h-4" />,
+    result_icon: <Calculator className="w-4 h-4" />,
+    formatArgs: (_toolName, input) => {
+      try {
+        const args = input as Record<string, unknown>;
+        return args?.originDistrict ? String(args.originDistrict) : "";
+      } catch {
+        return "";
+      }
+    },
+  },
   webSearch: {
     callCategory: "webSearch",
     resultCategory: "webSearch",

@@ -7,7 +7,6 @@ import {
   EXA_MAX_CHARACTERS,
   EXA_SYSTEM_PROMPT,
   EXA_LIVECRAWL,
-  OWNER_PROFILE_DOMAINS,
 } from '@/config';
 import type { UISource } from '@/types/data';
 
@@ -80,12 +79,10 @@ export function formatWebResults(results: WebResult[], synthesis: string): strin
 export function createWebSearch(collect: (s: UISource, content?: string) => void) {
   return tool({
   description:
-    'Search the web for information related to the knowledge base scope. ' +
-    'Use AFTER vectorDatabaseSearch. Good uses: recent developments, external perspectives, citations, author profiles, related work. ' +
-    'CRITICAL: Do NOT search for specific framework/paper names. Instead, search for the UNDERLYING CONCEPTS and METHODS. ' +
+    'Search the web for information related to the knowledge base scope (rice trade context for AP/Telangana merchants) — NOT for live mandi prices, which come from arbitrageCalculator. ' +
+    'Use AFTER vectorDatabaseSearch, for background/context questions the knowledge base does not cover. ' +
     'Use additionalQueries to cover 2-3 different angles with different terminology. ' +
-    `For the LATEST on the owner, prefer the fetchOwnerProfiles tool first; use this tool for broad follow-ups WITHOUT includeDomains. ` +
-    `Only set includeDomains (e.g. ${OWNER_PROFILE_DOMAINS.join(', ')}) when the user explicitly asks about one specific site.`,
+    'Only set includeDomains when the user explicitly asks about one specific site.',
   inputSchema: z.object({
     query: z.string().min(1).describe(
       'Primary search query using BROAD conceptual terms, NOT specific framework names. ' +

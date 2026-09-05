@@ -4,6 +4,7 @@ import { UIMessage, ToolCallPart, ToolResultPart } from "ai";
 import { Response } from "@/components/ai-elements/response";
 import { ReasoningPart } from "./reasoning-part";
 import { ToolCall, ToolResult } from "./tool-call";
+import { ArbitrageCard } from "./arbitrage-card";
 import { Sources } from "./sources";
 import { rewriteCitationsInParts } from "@/lib/citations";
 import type { UISource } from "@/types/data";
@@ -179,6 +180,17 @@ export function AssistantMessage({
             part.type === "dynamic-tool"
           ) {
             if ("state" in part && part.state === "output-available") {
+              // The arbitrage tool gets a dedicated result-card / comparison-table
+              // UI (deterministic, built from the tool's structured JSON output)
+              // instead of the generic one-line tool-result summary.
+              if (part.type === "tool-arbitrageCalculator" && "output" in part) {
+                return (
+                  <div key={`${message.id}-${i}`} className="flex flex-col gap-2">
+                    <ToolResult part={part as unknown as ToolResultPart} />
+                    <ArbitrageCard data={part.output as any} />
+                  </div>
+                );
+              }
               return (
                 <ToolResult
                   key={`${message.id}-${i}`}
