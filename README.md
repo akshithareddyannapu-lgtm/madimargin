@@ -1,6 +1,6 @@
-> **Team:** TODO(team name) · **Members:** TODO(4 names) · **Live URL:** TODO(Vercel URL, once deployed) · **Documentation:** [DOCUMENTATION.md](./DOCUMENTATION.md)
+> **Team:** Grassroots · **Members:** Priyanshu, Aditya, Hemasri, Akshitha · **Live URL:** [madimargin-git-main-aimodel3.vercel.app](https://madimargin-git-main-aimodel3.vercel.app) · **Documentation:** [DOCUMENTATION.md](./DOCUMENTATION.md)
 >
-> MandiMargin — a rice-arbitrage decision assistant for AP/Telangana merchants, built on the myAI6 template for the BITSoM "AI in Business" midterm. Update the line above with your real team info before submitting; it must be the first thing in this file per the assignment brief.
+> MandiMargin — a rice-arbitrage decision assistant for AP/Telangana merchants, built on the myAI6 template for the BITSoM "AI in Business" midterm.
 
 # MandiMargin (built on myAI6)
 
