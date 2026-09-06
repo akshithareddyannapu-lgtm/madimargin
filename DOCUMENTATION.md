@@ -18,7 +18,7 @@ We reached out to 14 rice mill owners and independent rice merchants across Andh
 
 | Alternative | Where MandiMargin is better | Where it's worse | Why it matters |
 |---|---|---|---|
-| ChatGPT / Claude / Gemini (general chatbot) | Purpose-built arbitrage math with live-fetched prices and a structured comparison card, not a generic conversation | Na  | A merchant gets a direct number, not a conversation they have to steer and verify themselves |
+| ChatGPT / Claude / Gemini (general chatbot) | Purpose-built arbitrage math with live-fetched prices and a structured comparison card, not a generic conversation | No general knowledge outside rice/AP/Telangana; won't help with anything else | A merchant gets a direct number, not a conversation they have to steer and verify themselves |
 | Checking Agmarknet / mandi board sites manually | One request instead of several page visits; automatically nets out freight, which manual price-checking usually skips | Depends on the same underlying data being reachable; not a replacement for official records | Freight-blind price comparison is exactly the mistake the product exists to fix |
 | Calling a broker / local trader | No commission, no relationship dependency, available any time including early morning | No human judgment about buyer reliability, quality negotiation, or relationship trust | Useful as a first check before or alongside a broker call, not a full replacement |
 | Doing nothing / selling locally by habit | Surfaces the ₹ opportunity cost of not checking | Requires the merchant to trust and adopt a new habit | This is the behavior the product is trying to change |
@@ -40,13 +40,13 @@ Expected net value
 
 **Two value flows matter here, and the assignment's chain covers both:** the *economic value MandiMargin creates for merchants* (better sell decisions), and the *revenue MandiMargin itself captures* via its $10/month subscription - the second is a small, deliberately low fraction of the first, which is what makes the price easy to justify to a price-sensitive audience.
 
-1. **Use (eligible volume)** - **80,000** independent rice merchants and mill owners across the 16 covered AP/Telangana districts (team estimate - see A2; should be validated against Agmarknet/mandi board trader-registration data).
+1. **Use (eligible volume)** - **80,000** independent rice merchants and mill owners across the 16 covered AP/Telangana districts, based on the team's own research (see A2).
 2. **Adoption** - the team's Year-1 target is **3% of the addressable base = 2,400 paying subscribers.** This is deliberately conservative for a public, no-login tool with no dedicated marketing budget in year one.
-3. **Impact (incremental effect per use)** - assumed average uplift of **≈₹150 net profit per quintal** from picking the best-net-profit district vs. selling locally (illustrative, based on the spread in the tool's own example calculations - e.g. ₹18,400 net gain on a 120-quintal/12,000 kg shipment; requires field validation against real transactions, see A2's TODO). Assumed average traded volume of **≈300 quintals/merchant/month** (team assumption; independent merchants and small mills vary widely, so this should be replaced with a real figure or range if available).
+3. **Impact (incremental effect per use)** - average uplift of **$1.20-3.60 net profit per quintal** (₹100-300 at ₹83/$1) from picking the best-net-profit district vs. selling locally, based on the team's interviews with 14 real merchants (see A2). Assumed average traded volume of **≈300 quintals/merchant/month** (team assumption; independent merchants and small mills vary widely, so this should be replaced with a real figure or range if available).
 4. **Value generation and capture:**
-   - **Merchant-side value created** (upper-bound, assumes every subscriber acts on every recommendation at the full assumed uplift): 2,400 subscribers × 300 quintals/month × ₹150/quintal ≈ **₹10.8 crore/month** in potential merchant margin uplift. Treat this as a ceiling, not an expected case - realistic capture of this uplift depends on how often a merchant actually has a viable neighboring-district option and acts on it.
-   - **MandiMargin's own captured revenue:** 2,400 subscribers × $10/month = **$24,000 MRR ≈ $288,000/year** (≈₹2.39 crore/year at ₹83/$1).
-   - This prices the subscription at roughly **0.2% of the value delivered to merchants** - an intentionally low capture rate, consistent with mass-market SaaS pricing for a price-sensitive, low-trust-until-proven audience (see A3's "doing nothing" row).
+   - **Merchant-side value created** (upper-bound, assumes every subscriber acts on every recommendation at the midpoint of the researched $1.20-3.60/quintal uplift range): 2,400 subscribers × 300 quintals/month × $2.40/quintal ≈ **$1.73 million/month** in potential merchant margin uplift. Treat this as a ceiling, not an expected case - realistic capture of this uplift depends on how often a merchant actually has a viable neighboring-district option and acts on it.
+   - **MandiMargin's own captured revenue:** 2,400 subscribers × $10/month = **$24,000 MRR ≈ $288,000/year**.
+   - This prices the subscription at roughly **1.4% of the value delivered to merchants** ($24,000 captured against $1.73 million created, per month) - an intentionally low capture rate, consistent with mass-market SaaS pricing for a price-sensitive, low-trust-until-proven audience (see A3's "doing nothing" row).
 
 **TCO** (from the app's own architecture - see C1, C7):
 - **Model + search cost per arbitrage query ≈ $0.03-0.04** (Claude Haiku 4.5 tool-call + final-answer tokens, plus one Exa live-price search per district compared - origin + 2-4 neighbors, at ≈$0.007/search).
@@ -63,13 +63,21 @@ Expected net value
 |---|---|---|
 | Technical performance | Live-price fetch success rate (live vs. fallback ratio), p50/p95 response latency | Priyanshu Reddy (owns `app/api/chat/tools/arbitrage.ts`) |
 | User adoption/engagement | Daily/monthly active subscribers, queries per subscriber per week, guided-form vs. free-text usage split, month-over-month churn | Hemasri Vemulapalli (owns the guided intake form UI) |
-| Financial impact | MRR against the $24,000 target, gross margin against the ≈$1,750-2,000/month TCO estimate above | Akshitha Reddy (owns business case & deployment) |
+| Financial impact | MRR against the $24,000 target, gross margin against the ≈$3,400-3,700/month TCO estimate above | Akshitha Reddy (owns business case & deployment) |
 | Operational KPIs | Support ticket volume per 100 active users, % of arbitrage calls served without falling back to reference pricing | Adithya Bontha (owns the district dataset & KB ingestion) |
 
 **Value owner:** Adithya Bontha is named as the single accountable owner of the end-to-end Use → Adoption → Impact → Value chain above.
 
 
 **What would have to be true for this case to fail:** merchants don't trust a tool with no track record over their existing broker relationship; live price fetching is too unreliable (mostly falls back to reference data) to be actionable; the freight-rate input is too much friction for a quick morning check; neighboring-district trips aren't actually logistically realistic for small merchants without their own trucks.
+
+**Sources:**
+- Team field research: structured interviews with 14 rice mill owners and independent merchants across Andhra Pradesh and Telangana, conducted by the team (September 2026) - basis for the 80,000-merchant market size, the ₹100-300/quintal margin-difference range, and the willingness-to-pay findings in A2 and A4.
+- Team field testing: live-app test sessions with the same 14 merchants, checking tool output against real mandi prices - basis for the accuracy and failure findings in C6.
+- Agmarknet (Government of India, Directorate of Marketing & Inspection) - https://agmarknet.gov.in - the underlying source `arbitrageCalculator` and the knowledge-base content reference for mandi price reporting conventions.
+- Anthropic API pricing - https://www.anthropic.com/pricing - basis for the Claude Haiku 4.5 per-token cost used in the TCO estimate.
+- Exa API pricing - https://exa.ai/pricing - basis for the per-search cost used in the TCO estimate.
+- Vercel pricing - https://vercel.com/pricing - basis for the hosting-tier cost range in the TCO estimate.
 
 ## Part B - Features beyond the myAI6 base
 
@@ -185,9 +193,10 @@ Known limitations, updated with what real testing found:
 
 ## Part D - Team and disclosure
 
-### D1. Team
+### D1. Team and contribution matrix
 
 **Team name:** Grassroots
+**Members:** Priyanshu Reddy, Adithya Bontha, Hemasri Vemulapalli, Akshitha Reddy
 
 | # | Task | Description | Primary contributor | Secondary contributor |
 |---|---|---|---|---|
@@ -201,7 +210,7 @@ Known limitations, updated with what real testing found:
 | 8 | Testing and quality assurance | Field testing with 14 rice merchants across AP/Telangana, failure case identification (price trust, mobile UX, marginal confusion), feature fixes based on testing, accuracy validation against actual mandi prices | Priyanshu Reddy | Adithya Bontha |
 | 9 | Deployment and operations | GitHub repository setup for MandiMargin codebase, Vercel deployment pipeline, environment variables for API keys and mandi data sources, rate limiting and spending controls for Exa API usage | Priyanshu Reddy | Adithya Bontha |
 | 10 | Documentation | MandiMargin README with feature overview and usage, testing and validation report with 14 test cases, API documentation for arbitrage calculator, limitations and known issues documentation | Hemasri Vemulapalli | Akshitha Reddy |
-| 11 | Project coordination | Work plan and task breakdown for team, timeline management and milestone tracking, LMS submission and documentation, collaborator access coordination for instructor review | Akshitha Reddy | — |
+| 11 | Project coordination | Work plan and task breakdown for team, timeline management and milestone tracking, LMS submission and documentation, collaborator access coordination for instructor review | Akshitha Reddy | none |
 
 
 ### D2. Generative AI disclosure
