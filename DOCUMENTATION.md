@@ -207,10 +207,10 @@ Known limitations, updated with what real testing found:
 | 5 | Feature 2: District Dropdown & Intake Form | Design and implementation of form-based user input interface, district selection dropdown, quantity and freight input fields, mobile and desktop responsiveness | Adithya Bontha | Hemasri Vemulapalli |
 | 6 | Prompts, behavior, and guardrails | System prompts for pricing recommendations, behavior rules for LIVE vs FALLBACK price display, citation handling for mandi data sources, moderation for out-of-scope regions | Priyanshu Reddy | Hemasri Vemulapalli |
 | 7 | Interface and user experience | Mobile and desktop UI design, form layout and flow optimization, result card layout and readability, suggested prompts for common merchant scenarios, language localization for regional merchants | Hemasri Vemulapalli | Akshitha Reddy |
-| 8 | Testing and quality assurance | Field testing with 14 rice merchants across AP/Telangana, failure case identification (price trust, mobile UX, marginal confusion), feature fixes based on testing, accuracy validation against actual mandi prices | Priyanshu Reddy | Adithya Bontha |
-| 9 | Deployment and operations | GitHub repository setup for MandiMargin codebase, Vercel deployment pipeline, environment variables for API keys and mandi data sources, rate limiting and spending controls for Exa API usage | Priyanshu Reddy | Adithya Bontha |
+| 8 | Testing and quality assurance | Field testing with 14 rice merchants across AP/Telangana, failure case identification (price trust, mobile UX, marginal confusion), feature fixes based on testing, accuracy validation against actual mandi prices | Hemasri Vemulapalli| Adithya Bontha |
+| 9 | Deployment and operations | GitHub repository setup for MandiMargin codebase, Vercel deployment pipeline, environment variables for API keys and mandi data sources, rate limiting and spending controls for Exa API usage | Akshitha Reddy | Adithya Bontha |
 | 10 | Documentation | MandiMargin README with feature overview and usage, testing and validation report with 14 test cases, API documentation for arbitrage calculator, limitations and known issues documentation | Hemasri Vemulapalli | Akshitha Reddy |
-| 11 | Project coordination | Work plan and task breakdown for team, timeline management and milestone tracking, LMS submission and documentation, collaborator access coordination for instructor review | Akshitha Reddy | none |
+| 11 | Project coordination | Work plan and task breakdown for team, timeline management and milestone tracking, LMS submission and documentation, collaborator access coordination for instructor review | Akshitha Reddy | Priyanshu Reddy  |
 
 
 ### D2. Generative AI disclosure
