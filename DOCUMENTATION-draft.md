@@ -186,10 +186,10 @@ Known limitations:
 
 | Member | Tasks completed |
 |---|---|
-| Priyanshu | Led scoping the stakeholder and product direction, built the arbitrage calculator tool end to end, and rewrote the assistant's identity, prompts, and guardrails to match the new use case. Also handled the Vercel deployment and environment configuration. |
+| Priyanshu | Led scoping the stakeholder and product direction, built the arbitrage calculator tool end to end, and rewrote the assistant's identity, prompts, and guardrails to match the new use case. |
 | Aditya | Sourced and ingested the knowledge base content and configured retrieval, ran the test pass and fixed issues found along the way, and coordinated the team's work plan, task split, and submission logistics. |
-| Hemasri | Designed and built the guided intake form, and shaped the overall interface and user experience around it so a first-time merchant knows exactly what to enter. |
-| Akshitha | Put together the business case and value model with sourced assumptions and metrics, and wrote and edited the product and technical documentation. |
+| Hemasri | Designed and built the guided intake form, and shaped the overall interface and user experience around it so a first-time merchant knows exactly what to enter and ran the test pass and fixed issues found along the way .|
+| Akshitha | Put together the business case and value model with sourced assumptions and metrics, and wrote and edited the product and technical documentation.Also handled the Vercel deployment and environment configuration. |
 
 *(Temporary fill — replace with what each person actually did before final submission; task groupings are paraphrased from the course's task-tracking template.)*
 
