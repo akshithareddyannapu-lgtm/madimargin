@@ -18,7 +18,7 @@ We reached out to 14 rice mill owners and independent rice merchants across Andh
 
 | Alternative | Where MandiMargin is better | Where it's worse | Why it matters |
 |---|---|---|---|
-| ChatGPT / Claude / Gemini (general chatbot) | Purpose-built arbitrage math with live-fetched prices and a structured comparison card, not a generic conversation | No general knowledge outside rice/AP/Telangana; won't help with anything else | A merchant gets a direct number, not a conversation they have to steer and verify themselves |
+| ChatGPT / Claude / Gemini (general chatbot) | Purpose-built arbitrage math with live-fetched prices and a structured comparison card, not a generic conversation | N/A | A merchant gets a direct number, not a conversation they have to steer and verify themselves |
 | Checking Agmarknet / mandi board sites manually | One request instead of several page visits; automatically nets out freight, which manual price-checking usually skips | Depends on the same underlying data being reachable; not a replacement for official records | Freight-blind price comparison is exactly the mistake the product exists to fix |
 | Calling a broker / local trader | No commission, no relationship dependency, available any time including early morning | No human judgment about buyer reliability, quality negotiation, or relationship trust | Useful as a first check before or alongside a broker call, not a full replacement |
 | Doing nothing / selling locally by habit | Surfaces the ₹ opportunity cost of not checking | Requires the merchant to trust and adopt a new habit | This is the behavior the product is trying to change |
