@@ -184,7 +184,7 @@ Known limitations:
 | Member | Tasks completed |
 |---|---|
 | Priyanshu | Led scoping the stakeholder and product direction, built the arbitrage calculator tool end to end, and rewrote the assistant's identity, prompts, and guardrails to match the new use case. |
-| Aditya | Sourced and wrote the knowledge base content and set up the Pinecone connection, prioritized the app's live-data feature over static KB retrieval for this build, and coordinated the team's work plan, task split, and submission logistics. |
+| Aditya | Sourced and wrote the knowledge base content and set up the exa and pinecone connections, prioritized the app's live-data feature over static KB retrieval for this build, and coordinated the team's work plan, task split, and submission logistics. |
 | Hemasri | Designed and built the guided intake form, shaped the overall interface and user experience around it so a first-time merchant knows exactly what to enter, and ran the test pass and fixed issues found along the way. |
 | Akshitha | Put together the business case and value model with sourced assumptions and metrics, wrote and edited the product and technical documentation, and handled the Vercel deployment and environment configuration. |
 
