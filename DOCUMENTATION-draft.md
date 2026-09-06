@@ -191,7 +191,6 @@ Known limitations:
 | Hemasri | Designed and built the guided intake form, and shaped the overall interface and user experience around it so a first-time merchant knows exactly what to enter and ran the test pass and fixed issues found along the way .|
 | Akshitha | Put together the business case and value model with sourced assumptions and metrics, and wrote and edited the product and technical documentation.Also handled the Vercel deployment and environment configuration. |
 
-*(Temporary fill — replace with what each person actually did before final submission; task groupings are paraphrased from the course's task-tracking template.)*
 
 ### D2. Generative AI disclosure
 
