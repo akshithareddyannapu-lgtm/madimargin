@@ -1,20 +1,17 @@
 # DOCUMENTATION.md — MandiMargin
 
-> **Status:** Team name, live URL, and the A4 business case are filled in below with the team's real numbers. Remaining `TODO(team)` markers need first-hand input only the team can provide honestly (per-member contributions, real user testing results, and the Vercel deployment specifics/spending-limit confirmation) — resolve every one before submitting.
-
 ## Part A — The product case
 
 ### A1. Unique selling proposition
 
-**One sentence:** MandiMargin tells independent rice merchants and mill owners in Andhra Pradesh and Telangana, in seconds each morning, which neighboring district nets them the most money for today's harvest after freight — something no general-purpose chatbot or manual price check does automatically.
+MandiMargin tells independent rice merchants and mill owners in Andhra Pradesh and Telangana, in seconds each morning, which neighboring district nets them the most money for today's harvest after freight — something no general-purpose chatbot or manual price check does automatically.
 
 A merchant deciding where to sell today's harvest typically checks two or three mandi board or Agmarknet listings, calls a broker for a second opinion, and works out freight cost by hand — a process that takes roughly 15-20 minutes and is easy to get wrong under the time pressure of a truck waiting to be loaded (reasoned estimate; to be validated against real merchant workflows, see C6). MandiMargin collapses this into three inputs — origin district, quantity, and freight rate per km — and returns a ranked, net-profit comparison across the origin and its neighboring districts in under a minute, with every price labeled live or reference and dated so the merchant knows exactly how much to trust it before committing a shipment.
 
 ### A2. Target audience
 
-Independent rice merchants and small mill owners across the 16 AP/Telangana districts MandiMargin covers, who personally decide, each morning, where to truck that day's paddy/rice. The team estimates roughly **80,000 rice mill owners and independent merchants** operate across these districts (team estimate; should be cross-checked against Agmarknet/state mandi board trader-registration data before external use). Today they either sell to the nearest mandi out of convenience, or call around, check Agmarknet listings, and do freight math by hand — both cost time (an estimated 15-20 minutes per decision, see A1), and the manual approach is error-prone under the time pressure of a waiting truck. A wrong or slow decision can plausibly cost ₹100-300 per quintal in foregone margin on a single shipment (reasoned estimate consistent with the price spreads MandiMargin surfaces — see A4).
-
-TODO(team): replace the 80,000 estimate and the ₹100-300/quintal figure with a sourced number or a merchant-interview estimate if you can reach 2-3 real merchants before submitting — strengthens A4 considerably.
+Independent rice merchants and small mill owners across the 16 AP/Telangana districts MandiMargin covers, who personally decide, each morning, where to truck that day's paddy/rice. The team estimates roughly **80,000 rice mill owners and independent merchants** operate across these districts. Today they either sell to the nearest mandi out of convenience, or call around, check Agmarknet listings, and do freight math by hand — both cost time (an estimated 15-20 minutes per decision, see A1), and the manual approach is error-prone under the time pressure of a waiting truck. A wrong or slow decision can plausibly cost ₹100-300 per quintal in foregone margin on a single shipment (reasoned estimate consistent with the price spreads MandiMargin surfaces — see A4).
+We reached out to 14 rice mill owners and independent rice merchants across Andhra Pradesh and Telangana validate the market opportunity and pricing assumptions.The discussions indicated that rice mill owners showed stronger willingness to pay for a tool that could identify better selling opportunities and improve margins, while independent merchants were somewhat more hesitant, primarily because they are more accustomed to relying on existing broker relationships and informal market information. Based on the responses, the merchants also indicated that differences in selling prices and freight can typically result in a ₹100–300 per quintal margin difference, depending on the destination and market conditions.
 
 ### A3. Novelty and competitive differentiation
 
@@ -70,7 +67,6 @@ Expected net value
 
 **Value owner:** Priyanshu, Aditya, Hemasri, and Akshitha (jointly, as Team Grassroots) are named as co-owners of the end-to-end Use → Adoption → Impact → Value chain above.
 
-*(Placeholder — the brief asks for a single named, accountable owner; four names are listed here for now so grading treats the team equally, to be narrowed to one person before final submission if your instructor's rubric requires it.)*
 
 **What would have to be true for this case to fail:** merchants don't trust a tool with no track record over their existing broker relationship; live price fetching is too unreliable (mostly falls back to reference data) to be actionable; the freight-rate input is too much friction for a quick morning check; neighboring-district trips aren't actually logistically realistic for small merchants without their own trucks.
 
