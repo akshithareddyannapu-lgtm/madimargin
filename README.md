@@ -1,4 +1,4 @@
-> **Team:** Grassroots · **Members:** Priyanshu, Aditya, Hemasri, Akshitha · **Live URL:** [madimargin-git-main-aimodel3.vercel.app](https://madimargin-git-main-aimodel3.vercel.app) · **Documentation:** [DOCUMENTATION.md](./DOCUMENTATION.md)
+> **Team:** Grassroots · **Members:** Priyanshu Reddy, Adithya Bontha, Hemasri Vemulapalli, Akshitha Reddy · **Live URL:** [madimargin-git-main-aimodel3.vercel.app](https://madimargin-git-main-aimodel3.vercel.app) · **Documentation:** [DOCUMENTATION.md](./DOCUMENTATION.md)
 >
 > MandiMargin — a rice-arbitrage decision assistant for AP/Telangana merchants, built on the myAI6 template for the BITSoM "AI in Business" midterm.
 
