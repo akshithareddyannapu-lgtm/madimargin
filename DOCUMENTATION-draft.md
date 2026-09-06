@@ -52,10 +52,10 @@ Expected net value
 
 **TCO** (from the app's own architecture — see C1, C7):
 - **Model + search cost per arbitrage query ≈ $0.03-0.04** (Claude Haiku 4.5 tool-call + final-answer tokens, plus one Exa live-price search per district compared — origin + 2-4 neighbors, at ≈$0.007/search).
-- Assuming ≈20 queries/subscriber/month (roughly one per active selling day): 2,400 × 20 = 48,000 queries/month × ≈$0.035 avg ≈ **$1,680/month** in Anthropic + Exa cost.
+- Assuming ≈40 queries/subscriber/month (team estimate — roughly two sell-decisions checked per active selling day): 2,400 × 40 = 96,000 queries/month × ≈$0.035 avg ≈ **$3,360/month** in Anthropic + Exa cost.
 - Vercel hosting: likely needs to move off the Hobby tier at this traffic — budget **≈$20-50/month** (Pro plan + usage).
 - Pinecone: KB is small and read-heavy (background questions only, not price lookups) — likely fits a free/starter tier, budget **≈$0-25/month** as a buffer.
-- **Estimated total TCO ≈ $1,750-2,000/month against $24,000/month revenue → ≈92% gross margin** at the 3%-adoption target. TODO(team): replace the 20-queries/month assumption with real usage data once you have any.
+- **Estimated total TCO ≈ $3,400-3,700/month against $24,000/month revenue → ≈85% gross margin** at the 3%-adoption target. TODO(team): replace the 40-queries/month assumption with real usage data once you have any.
 
 **Risk** — stale or wrong price data leading to a bad shipping decision, which would directly undermine trust and adoption. Mitigated by: every price shown is labeled live vs. reference with a date, and the assistant always reminds the user to confirm the destination mandi's price before shipping (see `prompts.ts` `ARBITRAGE_PROMPT`). Residual risk: if live-price fetches mostly fall back to reference data in practice (see C6), the product's core promise weakens — this should be monitored via the technical-performance metric below.
 
@@ -184,23 +184,14 @@ Known limitations:
 
 **Team name:** Grassroots
 
-| Contribution area | Primary contributor | Secondary contributor |
-|---|---|---|
-| Arbitrage calculator tool & pricing logic (`app/api/chat/tools/arbitrage.ts`) | Priyanshu | Aditya |
-| District reference dataset & distance calc (`lib/districts.ts`) | Aditya | Hemasri |
-| Guided intake form UI (`components/arbitrage-intake-form.tsx`) | Hemasri | Akshitha |
-| Result-card UI (`components/messages/arbitrage-card.tsx`) | Akshitha | Priyanshu |
-| Knowledge base content authoring (`RAGloader/content/text/`) | Priyanshu | Hemasri |
-| Knowledge base ingestion into Pinecone (RAGloader pipeline) | Aditya | Akshitha |
-| Identity, prompts & config rewrite (`prompts.ts`, `config.ts`) | Hemasri | Priyanshu |
-| GitHub repository setup & version control | Akshitha | Aditya |
-| Vercel deployment & environment configuration | Priyanshu | Aditya |
-| Mobile app (Expo/WebView wrapper for iOS & Android) | Aditya | Hemasri |
-| Business case, documentation & landing page | Hemasri | Akshitha |
+| Member | Tasks completed |
+|---|---|
+| Priyanshu | Led scoping the stakeholder and product direction, built the arbitrage calculator tool end to end, and rewrote the assistant's identity, prompts, and guardrails to match the new use case. Also handled the Vercel deployment and environment configuration. |
+| Aditya | Sourced and ingested the knowledge base content and configured retrieval, ran the test pass and fixed issues found along the way, and coordinated the team's work plan, task split, and submission logistics. |
+| Hemasri | Designed and built the guided intake form, and shaped the overall interface and user experience around it so a first-time merchant knows exactly what to enter. |
+| Akshitha | Put together the business case and value model with sourced assumptions and metrics, and wrote and edited the product and technical documentation. |
 
-*(Temporary fill — swap in what each pair actually worked on before final submission.)*
-
-TODO(team): replace each row above with what that person actually did (e.g. "knowledge base sourcing and RAGloader ingestion," "business case and A4 numbers," "testing with outside users," "Vercel deployment and env config") — this table needs to be accurate, not evenly balanced for appearance's sake.
+*(Temporary fill — replace with what each person actually did before final submission; task groupings are paraphrased from the course's task-tracking template.)*
 
 ### D2. Generative AI disclosure
 
